@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembersTable extends Migration
+class CreateMemberTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('member', function (Blueprint $table) {
             $table->id();
+            $table->string('nama', 120);
+            $table->text('alamat');
+            $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->string('telepon', 15);
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('member');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaketsTable extends Migration
+class CreateDetailTransaksiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreatePaketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pakets', function (Blueprint $table) {
+        Schema::create('detail_transaksi', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_transaksi')->constrained('transaksi');
+            $table->foreignId('id_paket')->constrained('paket');
+            $table->double('qty');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreatePaketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pakets');
+        Schema::dropIfExists('detail_transaksi');
     }
 }
