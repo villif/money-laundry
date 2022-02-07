@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\OutletController;
+use App\Http\Controllers\PaketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+route::resource('outlet',OutletController::class);
+route::resource('paket',PaketController::class);
