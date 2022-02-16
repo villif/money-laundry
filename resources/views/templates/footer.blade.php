@@ -21,5 +21,6 @@
 <script src="{{ asset('assets') }}/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('assets') }}/dist/js/demo.js"></script>
+@stack('script')
 </body>
 </html>

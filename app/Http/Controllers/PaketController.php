@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\paket;
+use App\Models\outlet;
 use App\Http\Requests\StorepaketRequest;
 use App\Http\Requests\UpdatepaketRequest;
 
@@ -15,7 +16,11 @@ class PaketController extends Controller
      */
     public function index()
     {
-        //
+        return view('paket/index', [
+            'paket' => paket::all(),
+            'outlet' => outlet::all()
+        ]
+        );
     }
 
     /**

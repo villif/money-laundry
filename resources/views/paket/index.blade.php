@@ -12,7 +12,7 @@
                     Tambah Paket
                 </button>
                 <div>
-                    @include('outlet/list-all')
+                    @include('paket/list-all')
                 </div>
             </div>
           <div style="margin-top:20px">
@@ -44,7 +44,7 @@
        <script>
            $(function(){
                //data Table
-               $('tbl-outlet').DataTable()
+               $('tbl-paket').DataTable()
 
                //menghapus alert
                $("#succes-alert").fadeTo(2000, 500).slideUp(500, function(){
@@ -68,8 +68,8 @@
                    modal.find('.modal-body #harga').val(harga);
                })
 
-               //delete outlet
-               $('.delete-outlet').click(function(e){
+               //delete paket
+               $('.delete-paket').click(function(e){
                    e.prevenDefault()
                    let data = $(this).closest('tr').find('td:eq(1)').text()
                    swal({
@@ -89,5 +89,5 @@
      
 </div> 
 </div>
-@include('outlet/form')
+@include('paket/form')
 @endsection

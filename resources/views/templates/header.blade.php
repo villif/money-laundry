@@ -212,11 +212,11 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ asset('assets') }}/index3.html" class="nav-link">
+                <a href="{{ url('/member') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Member</p>
                     <li class="nav-item">
-                      <a href="{{ asset('assets') }}/index3.html" class="nav-link">
+                      <a href="paket" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>paket</p>
                   </p>
