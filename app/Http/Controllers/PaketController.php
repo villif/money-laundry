@@ -6,6 +6,7 @@ use App\Models\paket;
 use App\Models\outlet;
 use App\Http\Requests\StorepaketRequest;
 use App\Http\Requests\UpdatepaketRequest;
+use Illuminate\Http\Request;
 
 class PaketController extends Controller
 {
@@ -16,11 +17,10 @@ class PaketController extends Controller
      */
     public function index()
     {
-        return view('paket/index', [
-            'paket' => paket::all(),
-            'outlet' => outlet::all()
-        ]
-        );
+        $data['paket'] = paket::all();
+        $data['outlet'] = outlet::all();
+        return view('paket/index' , ['paket'=>paket::all()],['outlet'=>outlet::all()]);
+
     }
 
     /**
@@ -39,10 +39,20 @@ class PaketController extends Controller
      * @param  \App\Http\Requests\StorepaketRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorepaketRequest $request)
-    {
-        //
-    }
+    public function store(Request $request)  
+        {
+            $validated = $request->validate([
+                'outlet_id' => 'required',
+                'jenis' => 'required',
+                'nama_paket' => 'required',
+                'harga' => 'required',
+            ]);
+
+            $input = paket::create($validated);
+
+            if($input) return redirect ('paket')->with('Berhasil' , 'Data berhasil diinput');
+        }
+    
 
     /**
      * Display the specified resource.

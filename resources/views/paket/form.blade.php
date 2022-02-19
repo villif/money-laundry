@@ -8,20 +8,29 @@
           </button>
         </div>
         <div class="modal-body">
-          <form method="POST" action="outlet">
+          <form method="POST" action="paket">
             @csrf
             <div id="method"></div>
             <div class="card-body">
               <div class="form-group">
-                <label for="id_outlet">id_outlet</label>
-                <input type="text" class="form-control col-sm-9" id="id_outlet" placeholder="" name="id_outlet">
+                <select class="form-control col-sm-9" name="outlet_id" id="outlet_id">
+                  @foreach ($outlet as $o)
+                  <option value="{{ $o->id }}">{{ $o->nama }}</option>
+                  @endforeach
+                  
+                </select>
               </div>
             </div>
   
             <div class="card-body">
                 <div class="form-group">
                   <label for="jenis">jenis</label>
-                  <input type="text" class="form-control col-sm-9" id="jenis" placeholder="" name="jenis">
+                  <select  name="jenis" class="form-control col-sm-9" id="jenis" placeholder="jenis" name="jenis" name="jenis"><option value="kiloan">Kiloan</option>
+                    <option value="selimut">Selimut</option>
+                    <option value="bed_cover">Bed_cover<option>
+                    <option value="kaos">Kaos</option>
+                    <option value="lainnya">Lainnya</option>
+                    </select>
                 </div>
               </div>
   

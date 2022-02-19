@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\MemberController;
@@ -16,9 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('index');
-});
+})->middleware('auth');
+
 route::resource('outlet',OutletController::class);
 route::resource('paket',PaketController::class);
 route::resource('member',MemberController::class);
+route::get('/',[LoginController::class,'index'])->name('login')->middleware('guest');
+route::post('/',[LoginController::class,'authenticate'])->name('login')->middleware('guest');
+route::post('/logout',[LoginController::class,'logout'])->name('login');
+

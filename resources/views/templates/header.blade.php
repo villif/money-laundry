@@ -23,7 +23,11 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ asset('assets') }}/index3.html" class="nav-link">Rumah</a>
+        {{-- <a href="{{ asset('assets') }}/index3.html" class="nav-link">Rumah</a> --}}
+        <form action="/logout" method="post">
+          @csrf
+          <button type="submit" class="border-0 nav-link">logout</button>
+        </form>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Hubungi</a>
@@ -206,19 +210,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ asset('assets') }}/index2.html" class="nav-link">
+                <a href="{{ url('paket') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Konsumen</p>
+                  <p>Paket</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ url('/member') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Member</p>
-                    <li class="nav-item">
-                      <a href="paket" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>paket</p>
                   </p>
                 </a>
               </li>
@@ -235,8 +235,8 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                kelas
-                <i class="right fas fa-angle-left"></i>
+                Transaksi
+                
               </p>
             </a>
           </li>
